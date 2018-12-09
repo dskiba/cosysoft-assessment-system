@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Use antd in create-react-app
 
 ## Step by Step Documentation
@@ -28,3 +29,7 @@ $ yarn start
 - [create-react-app](https://github.com/facebookincubator/create-react-app)
 - [react-app-rewired](https://github.com/timarney/react-app-rewired)
 - [less-loader](https://github.com/webpack/less-loader)
+=======
+# cosysoft-assessment-system
+assessment system beta
+>>>>>>> 93bbbbe0561afbdcbafcacb3e5312cecca8530c6
