@@ -20,7 +20,7 @@ class mainLayout extends Component {
 
     return (
       <Layout style={{ height: "100vh" }}>
-        <Sider trigger={null} collapsible collapsed={isCollapsed}>
+        <Sider trigger={null} collapsible collapsed={isCollapsed} width="230">
           <div className="logo">
             {isCollapsed ? (
               <div className="shortlogo">CS</div>
@@ -34,7 +34,7 @@ class mainLayout extends Component {
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
             <Menu.Item key="1">
               <Icon type="user" />
-              <span>nav 1</span>
+              <span>Таблица пользователей</span>
             </Menu.Item>
             <Menu.Item key="2">
               <Icon type="video-camera" />
