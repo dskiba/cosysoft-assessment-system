@@ -1,0 +1,46 @@
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.logo {
+  font-size: 24px;
+  padding: 16px;
+}
+
+.fulllogo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.shortlogo {
+  display: block;
+  text-align: center;
+  color: #fed136;
+  font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+  line-height: 22px;
+}
+
+.title {
+  display: block;
+  color: #fed136;
+  font-family: "Kaushan Script", "Helvetica Neue", Helvetica, Arial, cursive;
+  line-height: 22px;
+}
+.subtitle {
+  line-height: 20px;
+  text-align: center;
+  font-family: Helvetica;
+  display: block;
+  font-size: 12px;
+  color: #fed136;
+}
