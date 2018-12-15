@@ -1,15 +1,18 @@
 import React, { Component } from "react";
 import { Layout, Menu, Icon } from "antd";
+
+import { Sider } from "./Sider";
+import { Header } from "./Header";
 import "./layout.css";
 
-const { Header, Content, Sider } = Layout;
+const { Content } = Layout;
 
 class mainLayout extends Component {
   state = {
     isCollapsed: false
   };
 
-  toggle = () => {
+  onToggle = () => {
     this.setState({
       isCollapsed: !this.state.isCollapsed
     });
@@ -20,40 +23,9 @@ class mainLayout extends Component {
 
     return (
       <Layout style={{ height: "100vh" }}>
-        <Sider trigger={null} collapsible collapsed={isCollapsed} width="230">
-          <div className="logo">
-            {isCollapsed ? (
-              <div className="shortlogo">CS</div>
-            ) : (
-              <div className="fulllogo">
-                <div className="title">CosySoft</div>
-                <div className="subtitle">assessment system</div>
-              </div>
-            )}
-          </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-            <Menu.Item key="1">
-              <Icon type="user" />
-              <span>Таблица пользователей</span>
-            </Menu.Item>
-            <Menu.Item key="2">
-              <Icon type="video-camera" />
-              <span>nav 2</span>
-            </Menu.Item>
-            <Menu.Item key="3">
-              <Icon type="upload" />
-              <span>nav 3</span>
-            </Menu.Item>
-          </Menu>
-        </Sider>
+        <Sider isCollapsed={isCollapsed} />
         <Layout>
-          <Header style={{ background: "#fff", padding: 0 }}>
-            <Icon
-              className="trigger"
-              type={this.state.isCollapsed ? "menu-unfold" : "menu-fold"}
-              onClick={this.toggle}
-            />
-          </Header>
+          <Header isCollapsed={isCollapsed} onToggle={this.onToggle} />
           <Content
             style={{
               margin: "24px 16px",
