@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Layout, Menu, Icon } from "antd";
+import { Layout } from "antd";
 
 import { Sider } from "./Sider";
 import { Header } from "./Header";
