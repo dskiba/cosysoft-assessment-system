@@ -3,10 +3,11 @@ import { Table, Divider, Icon } from "antd";
 
 const dataSource = [
     {
-        id: "1",
+        id: "s8c1rj7",
         username: "admin",
+        real_name: "Админ",
         password: "admin",
-        email: "admin@cosy.ru",
+        email: "admin@cosysoft.ru",
         phone: "89297675634",
         birthdate: "01-02-1992",
         role: "backend developer",
@@ -19,13 +20,31 @@ const dataSource = [
         salary: 100000
     },
     {
-        id: "2",
-        username: "admin",
-        password: "admin",
-        email: "admin@cosy.ru",
-        phone: "89297675634",
-        birthdate: "01-02-1992",
-        role: "backend developer",
+        id: "56ceemy",
+        username: "aleksander",
+        real_name: "Александр Фомин",
+        password: "asdasdas1",
+        email: "boss@cosysoft.ru",
+        phone: "89063399354",
+        birthdate: "22-09-1984",
+        role: "boss",
+        experience_lvl: "boss",
+        service_role: "ADMIN",
+        hire_date: "01-01-1970",
+        job_type: "employee",
+        last_assessment_date: "01-10-2018",
+        next_assessment_date: "02-04-2019",
+        salary: 9999999
+    },
+    {
+        id: "67ujan3",
+        username: "ilya",
+        real_name: "Илья Обухов",
+        password: "vbnfhu1gkd",
+        email: "graf.obukhov@cosysoft.ru",
+        phone: "89178230787",
+        birthdate: "22-09-1984",
+        role: "front-end developer",
         experience_lvl: "senior",
         service_role: "ADMIN",
         hire_date: "01-01-1970",
@@ -33,6 +52,74 @@ const dataSource = [
         last_assessment_date: "01-10-2018",
         next_assessment_date: "02-04-2019",
         salary: 100000
+    },
+    {
+        id: "xsbl3q2",
+        username: "inna",
+        real_name: "Инна Прохорова",
+        password: "sdfgg231sd",
+        email: "inna@cosysoft.ru",
+        phone: "89277766331",
+        birthdate: "22-09-1984",
+        role: "manager",
+        experience_lvl: "senior",
+        service_role: "ADMIN",
+        hire_date: "01-01-1970",
+        job_type: "employee",
+        last_assessment_date: "01-10-2018",
+        next_assessment_date: "02-04-2019",
+        salary: 100000
+    },
+    {
+        id: "k2yko70",
+        username: "shandurenko",
+        real_name: "Александр Шандуренко",
+        password: "omaewamoushindeiru",
+        email: "shandurenko@cosysoft.ru",
+        phone: "89297192971",
+        birthdate: "12-07-1996",
+        role: "front-end developer",
+        experience_lvl: "regular",
+        service_role: "USER",
+        hire_date: "01-01-1970",
+        job_type: "employee",
+        last_assessment_date: "01-10-2018",
+        next_assessment_date: "02-04-2019",
+        salary: 100000
+    },
+    {
+        id: "et5gm3f",
+        username: "ivan",
+        real_name: "Иван Лялякин",
+        password: "vbnfhu1gkd",
+        email: "ivan@cosysoft.ru",
+        phone: "89277766331",
+        birthdate: "22-09-1984",
+        role: "front-end developer",
+        experience_lvl: "senior",
+        service_role: "ADMIN",
+        hire_date: "01-01-1970",
+        job_type: "employee",
+        last_assessment_date: "01-10-2018",
+        next_assessment_date: "02-04-2019",
+        salary: 100000
+    },
+    {
+        id: "eauki5m",
+        username: "doschaty",
+        real_name: "Таинственный Разработчик",
+        password: "vbnfhu1gkd",
+        email: "planks@cosysoft.ru",
+        phone: "00010110100",
+        birthdate: "22-09-1984",
+        role: "front-end developer",
+        experience_lvl: "over 9000",
+        service_role: "USER",
+        hire_date: "01-01-1970",
+        job_type: "employee",
+        last_assessment_date: "01-10-2018",
+        next_assessment_date: "02-04-2019",
+        salary: 9001
     }
 ];
 
@@ -45,8 +132,8 @@ const columns = [
     },
     {
         title: "Имя",
-        dataIndex: "username",
-        key: "username",
+        dataIndex: "real_name",
+        key: "real_name",
         width: 150,
         // eslint-disable-next-line
         render: text => <a href="#">{text}</a>
@@ -73,7 +160,7 @@ const columns = [
         title: "Уровень",
         dataIndex: "experience_lvl",
         key: "experience_lvl",
-        width: 150
+        width: 100
     },
     {
         title: "Дата приема на работу",
@@ -88,10 +175,10 @@ const columns = [
         width: 150
     },
     {
-        title: "Заработная плата",
+        title: "З/П",
         dataIndex: "salary",
         key: "salary",
-        width: 150
+        width: 100
     },
     {
         title: "Действия",
