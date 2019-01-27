@@ -1,5 +1,6 @@
 import React from "react";
 import { Layout, Menu, Icon } from "antd";
+import Link from "containers/Navigation/Link";
 
 export function Sider(props) {
   return (
@@ -22,16 +23,13 @@ export function Sider(props) {
       <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
         <Menu.Item key="1">
           <Icon type="user" />
-          <span>Таблица пользователей</span>
+          <a>123</a>
+          <Link
+            render={(location, onNavigate) => (
+              <a onClick={() => onNavigate(`/users`)}>Таблица пользователей </a>
+            )}
+          />
         </Menu.Item>
-        {/*<Menu.Item key="2">*/}
-          {/*<Icon type="video-camera" />*/}
-          {/*<span>nav 2</span>*/}
-        {/*</Menu.Item>*/}
-        {/*<Menu.Item key="3">*/}
-          {/*<Icon type="upload" />*/}
-          {/*<span>nav 3</span>*/}
-        {/*</Menu.Item>*/}
       </Menu>
     </Layout.Sider>
   );
