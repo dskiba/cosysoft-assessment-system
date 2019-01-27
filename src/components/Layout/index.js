@@ -7,7 +7,7 @@ import "./layout.css";
 
 const { Content } = Layout;
 
-class mainLayout extends Component {
+class BaseLayout extends Component {
   state = {
     isCollapsed: false
   };
@@ -42,4 +42,4 @@ class mainLayout extends Component {
   }
 }
 
-export default mainLayout;
+export default BaseLayout;
