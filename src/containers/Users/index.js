@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Table, Divider, Icon } from "antd";
 
-import BaseLayout from "../Layout";
+import BaseLayout from "components/Layout";
+import Link from "../Navigation/Link";
+import { fromJS } from "immutable";
 
-const dataSource = [
+export const dataSource = fromJS([
   {
     id: "s8c1rj7",
     username: "admin",
@@ -123,88 +125,113 @@ const dataSource = [
     next_assessment_date: "02-04-2019",
     salary: 9001
   }
-];
-
-const columns = [
-  // {
-  //     title: "Id",
-  //     dataIndex: 'id',
-  //     key: 'id',
-  //     width: 100
-  // },
-  {
-    title: "Имя",
-    dataIndex: "real_name",
-    key: "real_name",
-    width: 150,
-    // eslint-disable-next-line
-    render: text => <a href="#">{text}</a>
-  },
-  {
-    title: "Email",
-    dataIndex: "email",
-    key: "email",
-    width: 150
-  },
-  {
-    title: "Дата рождения",
-    dataIndex: "birthdate",
-    key: "birthdate",
-    width: 150
-  },
-  {
-    title: "Позиция",
-    dataIndex: "role",
-    key: "role",
-    width: 150
-  },
-  {
-    title: "Уровень",
-    dataIndex: "experience_lvl",
-    key: "experience_lvl",
-    width: 100
-  },
-  {
-    title: "Дата приема на работу",
-    dataIndex: "hire_date",
-    key: "hireDate",
-    width: 150
-  },
-  {
-    title: "Последний ассесмент",
-    dataIndex: "last_assessment_date",
-    key: "last_assessment_date",
-    width: 150
-  },
-  {
-    title: "З/П",
-    dataIndex: "salary",
-    key: "salary",
-    width: 100
-  },
-  {
-    title: "Действия",
-    key: "action",
-    width: 360,
-    render: (text, record) => (
-      <span>
-        <a href="/">Action 一 {record.username}</a>
-        <Divider type="vertical" />
-        <a href="/">Delete</a>
-        <Divider type="vertical" />
-        <a href="/" className="ant-dropdown-link">
-          More actions <Icon type="down" />
-        </a>
-      </span>
-    )
-  }
-];
+]);
 
 class Users extends Component {
+  constructor(props) {
+    super(props);
+    this.columns = [
+      // {
+      //     title: "Id",
+      //     dataIndex: 'id',
+      //     key: 'id',
+      //     width: 100
+      // },
+      {
+        title: "Имя",
+        dataIndex: "real_name",
+        key: "real_name",
+        width: 150,
+        // eslint-disable-next-line
+        render: (text, record) => (
+          <Link
+            render={(location, onNavigate) => (
+              <a onClick={() => onNavigate(`users/${record.id}`)}>{text}</a>
+            )}
+          />
+        )
+      },
+
+      // <a href={`users/${record.id}`}>{text}</a>
+
+      {
+        title: "Email",
+        dataIndex: "email",
+        key: "email",
+        width: 150
+      },
+      {
+        title: "Дата рождения",
+        dataIndex: "birthdate",
+        key: "birthdate",
+        width: 150
+      },
+      {
+        title: "Позиция",
+        dataIndex: "role",
+        key: "role",
+        width: 150
+      },
+      {
+        title: "Уровень",
+        dataIndex: "experience_lvl",
+        key: "experience_lvl",
+        width: 100
+      },
+      {
+        title: "Дата приема на работу",
+        dataIndex: "hire_date",
+        key: "hireDate",
+        width: 150
+      },
+      {
+        title: "Последний ассесмент",
+        dataIndex: "last_assessment_date",
+        key: "last_assessment_date",
+        width: 150
+      },
+      {
+        title: "З/П",
+        dataIndex: "salary",
+        key: "salary",
+        width: 100
+      },
+      {
+        title: "Действия",
+        key: "action",
+        width: 360,
+        render: (text, record) => (
+          <span>
+            <button onClick={() => this.onDelete(record.id)}> Delete</button>
+            <Divider type="vertical" />
+            <a href="/" className="ant-dropdown-link">
+              More actions <Icon type="down" />
+            </a>
+          </span>
+        )
+      }
+    ];
+    this.state = {
+      users: dataSource
+    };
+  }
+
+  onDelete(id) {
+    const filteredUsers = this.state.users.filter(
+      user => user.get("id") !== id
+    );
+    this.setState({ users: filteredUsers });
+  }
+
   render() {
     return (
       <BaseLayout>
-        <Table dataSource={dataSource} columns={columns} />;
+        <Table
+          dataSource={this.state.users.toJS()}
+          columns={this.columns}
+          rowKey={record => record.id}
+        />
+        ;
       </BaseLayout>
     );
   }

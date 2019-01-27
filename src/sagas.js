@@ -1,3 +1,3 @@
-import UserSagas from "./components/Users/sagas";
+import UserSagas from "containers/Users/sagas";
 
 export default [].concat(UserSagas);

@@ -3,6 +3,7 @@ import React from "react";
 import { Redirect, Route, Switch } from "react-router";
 
 import Users from "./Users";
+
 // import Admin from 'componets/pages/admin';
 // import Management from 'componets/pages/management';
 // import Statistics from 'componets/pages/statist/ics';
@@ -18,6 +19,11 @@ class Root extends React.Component {
           key={routes.users}
           path={routes.users}
           render={() => <Users baseUrl={routes.users} />}
+        />
+        <Route
+          exact
+          path={routes.users + "/:id"}
+          render={props => <Users id={props.match.params.id} />}
         />
 
         <Redirect to={routes.users} />
