@@ -1,11 +1,15 @@
-// import { call, put, takeLatest, select } from "redux-saga/effects";
+import { call, takeLatest } from "redux-saga/effects";
+import { loadUsers } from "../../api/users";
 
-export function* requestEntityList() {
-  console.log("");
+export function* loadUsersSaga() {
+  console.log("loadUsersSaga");
+
+  const usersData = yield call(loadUsers);
+  console.log({ usersData });
 }
 
 export default [
   function*() {
-    // yield takeLatest(ActionUpdateSocket.type, requestEntityList);
+    yield takeLatest("LOAD_USERS", loadUsersSaga);
   }
 ];

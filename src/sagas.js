@@ -1,3 +1,3 @@
-import UserSagas from "containers/Users/sagas";
+import UsersSagas from "containers/Users/sagas";
 
-export default [].concat(UserSagas);
+export default [].concat(UsersSagas);
