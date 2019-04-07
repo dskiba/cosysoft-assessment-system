@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Table, Divider, Icon } from "antd";
 
 import BaseLayout from "components/Layout";
@@ -146,7 +147,9 @@ class Users extends Component {
         render: (text, record) => (
           <Link
             render={(location, onNavigate) => (
-              <a onClick={() => onNavigate(`users/${record.id}`)}>{text}</a>
+              <span onClick={() => onNavigate(`users/${record.id}`)}>
+                {text}
+              </span>
             )}
           />
         )
@@ -216,6 +219,11 @@ class Users extends Component {
     };
   }
 
+  componentDidMount() {
+    const { loadUsers } = this.props;
+    loadUsers();
+  }
+
   onDelete(id) {
     const filteredUsers = this.state.users.filter(
       user => user.get("id") !== id
@@ -237,4 +245,23 @@ class Users extends Component {
   }
 }
 
-export default Users;
+const mapDispatchToProps = dispatch => {
+  return {
+    // dispatching plain actions
+    loadUsers: () => dispatch({ type: "LOAD_USERS" })
+    // decrement: () => dispatch({ type: "DECREMENT" }),
+    // reset: () => dispatch({ type: "RESET" })
+  };
+};
+
+function mapStateToProps(state) {
+  console.log(state);
+
+  return { todoList: "123" };
+}
+
+// export default Users;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Users);

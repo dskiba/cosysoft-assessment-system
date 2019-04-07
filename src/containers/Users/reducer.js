@@ -10,14 +10,7 @@ class UsersReducer extends ReduxReducer {
     });
   }
 
-  /**
-   *
-   * @param {Immutable.Map} state
-   * @param {ActionUpdateEntity} action
-   * @return {Immutable.Map} new state
-   */
   updateRecord(state, action) {
-    // const meta = EntityService.getMetaByInstance(action.entityRecord);
     return state;
   }
 }

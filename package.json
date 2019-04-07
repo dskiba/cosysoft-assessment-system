@@ -2,6 +2,7 @@
   "name": "create-react-app-antd",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:10000",
   "dependencies": {
     "antd": "^3.16.1",
     "babel-plugin-import": "^1.11.0",

@@ -10,23 +10,30 @@ export function Sider(props) {
       collapsed={props.isCollapsed}
       width="230"
     >
-      <div className="logo">
-        {props.isCollapsed ? (
-          <div className="shortlogo">CS</div>
-        ) : (
-          <div className="fulllogo">
-            <div className="title">CosySoft</div>
-            <div className="subtitle">assessment system</div>
+      <Link
+        render={(location, onNavigate) => (
+          <div className="logo">
+            {props.isCollapsed ? (
+              <div className="shortlogo" onClick={() => onNavigate("/")}>
+                CS
+              </div>
+            ) : (
+              <div className="fulllogo" onClick={() => onNavigate("/")}>
+                <div className="title">CosySoft</div>
+                <div className="subtitle">assessment system</div>
+              </div>
+            )}
           </div>
         )}
-      </div>
+      />
       <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
         <Menu.Item key="1">
           <Icon type="user" />
-          <a>123</a>
           <Link
             render={(location, onNavigate) => (
-              <a onClick={() => onNavigate(`/users`)}>Таблица пользователей </a>
+              <span onClick={() => onNavigate(`/users`)}>
+                Таблица пользователей{" "}
+              </span>
             )}
           />
         </Menu.Item>
