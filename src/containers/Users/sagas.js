@@ -1,4 +1,4 @@
-// import { call, put, takeLatest, select } from "redux-saga/effects";
+import { call, put, takeLatest, select } from "redux-saga/effects";
 
 export function* requestEntityList() {
   console.log("");
@@ -6,6 +6,6 @@ export function* requestEntityList() {
 
 export default [
   function*() {
-    // yield takeLatest(ActionUpdateSocket.type, requestEntityList);
+    yield takeLatest("ActionUpdateSocket.type", requestEntityList);
   }
 ];
