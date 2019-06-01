@@ -247,10 +247,7 @@ class Users extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // dispatching plain actions
     loadUsers: () => dispatch({ type: "LOAD_USERS" })
-    // decrement: () => dispatch({ type: "DECREMENT" }),
-    // reset: () => dispatch({ type: "RESET" })
   };
 };
 
