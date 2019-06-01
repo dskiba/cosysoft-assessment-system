@@ -4,6 +4,7 @@ import { dataSource } from "../Users/index";
 
 class UserEdit extends Component {
   render() {
+    console.log("UserEdit", this.props);
     const { id } = this.props;
     const user = dataSource.find(user => user.get("id") === id);
 

@@ -1,28 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider } from "react-redux";
 import "./index.css";
-// import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
-import { Route } from "react-router";
-import { ConnectedRouter } from "connected-react-router/immutable";
-import createHistory from "history/createBrowserHistory";
+import { BrowserRouter as Router } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import { Routes } from "./Routes/Routes";
 
-import configureStore from "./store";
-import AppSagas from "./sagas";
-import Root from "./routes/Root";
-
-const history = createHistory();
-const store = configureStore(history);
-AppSagas.map(store.runSaga);
+const history = createBrowserHistory();
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <Route path={"/"} render={props => <Root {...props} />} />
-    </ConnectedRouter>
-  </Provider>,
+  <Router>
+    <Routes />
+  </Router>,
   document.getElementById("root")
 );
 

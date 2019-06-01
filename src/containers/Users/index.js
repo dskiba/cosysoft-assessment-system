@@ -1,12 +1,8 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
 import { Table, Divider, Icon } from "antd";
+import { Link } from "react-router-dom";
 
-import BaseLayout from "components/Layout";
-import Link from "../Navigation/Link";
-import { fromJS } from "immutable";
-
-export const dataSource = fromJS([
+export const dataSource = [
   {
     id: "s8c1rj7",
     username: "admin",
@@ -126,7 +122,7 @@ export const dataSource = fromJS([
     next_assessment_date: "02-04-2019",
     salary: 9001
   }
-]);
+];
 
 class Users extends Component {
   constructor(props) {
@@ -144,18 +140,16 @@ class Users extends Component {
         key: "real_name",
         width: 150,
         // eslint-disable-next-line
-        render: (text, record) => (
-          <Link
-            render={(location, onNavigate) => (
-              <span onClick={() => onNavigate(`users/${record.id}`)}>
-                {text}
-              </span>
-            )}
-          />
-        )
+        render: (text, record) => {
+          console.log("render", this.props);
+          const { url } = this.props.match;
+          return (
+            <Link to={`${url}/${record.id}`} qwe={"qwe44"}>
+              {text}
+            </Link>
+          );
+        }
       },
-
-      // <a href={`users/${record.id}`}>{text}</a>
 
       {
         title: "Email",
@@ -219,10 +213,7 @@ class Users extends Component {
     };
   }
 
-  componentDidMount() {
-    const { loadUsers } = this.props;
-    loadUsers();
-  }
+  componentDidMount() {}
 
   onDelete(id) {
     const filteredUsers = this.state.users.filter(
@@ -232,33 +223,15 @@ class Users extends Component {
   }
 
   render() {
+    const { users } = this.state;
     return (
-      <BaseLayout>
-        <Table
-          dataSource={this.state.users.toJS()}
-          columns={this.columns}
-          rowKey={record => record.id}
-        />
-        ;
-      </BaseLayout>
+      <Table
+        dataSource={users}
+        columns={this.columns}
+        rowKey={record => record.id}
+      />
     );
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    loadUsers: () => dispatch({ type: "LOAD_USERS" })
-  };
-};
-
-function mapStateToProps(state) {
-  console.log(state);
-
-  return { todoList: "123" };
-}
-
-// export default Users;
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Users);
+export default Users;
