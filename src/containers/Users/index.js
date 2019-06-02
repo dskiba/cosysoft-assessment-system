@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Table, Divider, Icon } from "antd";
 import { Link } from "react-router-dom";
 
@@ -227,4 +228,23 @@ class Users extends Component {
   }
 }
 
-export default Users;
+const mapDispatchToProps = dispatch => {
+  return {
+    // dispatching plain actions
+    loadUsers: () => dispatch({ type: "LOAD_USERS" })
+    // decrement: () => dispatch({ type: "DECREMENT" }),
+    // reset: () => dispatch({ type: "RESET" })
+  };
+};
+
+function mapStateToProps(state) {
+  console.log(state);
+
+  return { todoList: "123" };
+}
+
+// export default Users;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Users);
