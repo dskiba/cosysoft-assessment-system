@@ -4,7 +4,5 @@ import { requestCall } from "../utils/request";
 
 export function* loadUsers() {
   const requestURL = `${baseUrl}/users/all`;
-  console.log(requestURL);
-
   return yield call(requestCall, requestURL, {}, "actionErrorNetwork");
 }

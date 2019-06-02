@@ -128,18 +128,11 @@ class Users extends Component {
   constructor(props) {
     super(props);
     this.columns = [
-      // {
-      //     title: "Id",
-      //     dataIndex: 'id',
-      //     key: 'id',
-      //     width: 100
-      // },
       {
         title: "Имя",
         dataIndex: "real_name",
         key: "real_name",
         width: 150,
-        // eslint-disable-next-line
         render: (text, record) => {
           console.log("render", this.props);
           const { url } = this.props.match;
