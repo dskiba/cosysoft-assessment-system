@@ -30,7 +30,7 @@
     "lint:write": "eslint --debug src/ --fix"
   },
   "lint-staged": {    
-    "*.(js|jsx)": ["yarn lint:write", "git add"]  
+    "*.(js|jsx)": ["prettier --write", "yarn lint:write", "git add"]  
  },
   "husky": {
     "hooks": {
