@@ -136,11 +136,7 @@ class Users extends Component {
         render: (text, record) => {
           console.log("render", this.props);
           const { url } = this.props.match;
-          return (
-            <Link to={`${url}/${record.id}`} qwe={"qwe44"}>
-              {text}
-            </Link>
-          );
+          return <Link to={`${url}/${record.id}`}>{text}</Link>;
         }
       },
 

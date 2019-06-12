@@ -4,9 +4,11 @@
   "private": true,
   "proxy": "http://localhost:10000",
   "dependencies": {
-    "antd": "^3.19.1",
+    "antd": "^3.19.2",
     "babel-plugin-import": "^1.12.0",
     "customize-cra": "^0.2.13",
+    "effector": "^0.18.11",
+    "effector-react": "^0.18.10",
     "history": "^4.9.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",

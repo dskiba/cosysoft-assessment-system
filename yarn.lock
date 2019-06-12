@@ -3853,6 +3853,18 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+effector-react@^0.18.10:
+  version "0.18.10"
+  resolved "https://registry.yarnpkg.com/effector-react/-/effector-react-0.18.10.tgz#6ad812d4320301b48df4998471ab2487ce624703"
+  integrity sha512-vY2RMQm+acHNQqJcoHyOkOgh6WByl3bUjPGFHYItsARsDCipMfuj3ydFx72ys9yA4YES1bpJkgzUYbLYc67x1A==
+
+effector@^0.18.11:
+  version "0.18.11"
+  resolved "https://registry.yarnpkg.com/effector/-/effector-0.18.11.tgz#fdcab579ca5e02efa547055f09aa1214fdead5bf"
+  integrity sha512-ZPN0kVWpEIVXq2poZqnfgAoFgbmRgocDVNY9dXg/cQ0VvdTtrsTs4SZJivTPZPjAUL1yPxtKkv+ezk4s9K9PAQ==
+  dependencies:
+    symbol-observable "^1.2.0"
+
 electron-to-chromium@^1.3.122, electron-to-chromium@^1.3.137:
   version "1.3.142"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.142.tgz#d3db509ac0f0f5a212af234ff3b500d8cc4ea812"
@@ -11281,6 +11293,11 @@ svgo@^1.0.0, svgo@^1.2.1:
     stable "^0.1.8"
     unquote "~1.1.1"
     util.promisify "~1.0.0"
+
+symbol-observable@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
+  integrity sha512-e900nM8RRtGhlV36KGEU9k65K3mPb1WV70OdjfxlG2EAuM1noi/E/BaW/uMhL7bPEssK8QV57vN3esixjUvcXQ==
 
 symbol-tree@^3.2.2:
   version "3.2.2"
