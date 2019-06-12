@@ -134,6 +134,7 @@ class Users extends Component {
         key: 'real_name',
         width: 150,
         render: (text, record) => {
+          
           const {url} = this.props.match;
           return <Link to={`${url}/${record.id}`}>{text}</Link>;
         },

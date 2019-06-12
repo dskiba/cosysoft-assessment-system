@@ -9,12 +9,12 @@ const { Content } = Layout;
 
 class BaseLayout extends Component {
   state = {
-    isCollapsed: false
+    isCollapsed: false,
   };
 
   onToggle = () => {
     this.setState({
-      isCollapsed: !this.state.isCollapsed
+      isCollapsed: !this.state.isCollapsed,
     });
   };
 
@@ -31,7 +31,7 @@ class BaseLayout extends Component {
               margin: "24px 16px",
               padding: 24,
               background: "#fff",
-              minHeight: 280
+              minHeight: 280,
             }}
           >
             {this.props.children}
