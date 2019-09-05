@@ -1,47 +1,48 @@
 import React from "react";
 import { Layout, Menu, Icon } from "antd";
-import { history, goToMainPage } from "../../../lib/routing";
+import { goToMainPage, goTo } from "../../../lib/routing";
 
-export function Sider(props) {
-  console.log(props);
+const shortLogo = () => {
+  return (
+    <div
+      className="shortlogo"
+      onClick={() => {
+        goToMainPage();
+      }}
+    >
+      CS
+    </div>
+  );
+};
 
+const fullLogo = () => (
+  <div
+    className="fulllogo"
+    onClick={() => {
+      goToMainPage();
+    }}
+  >
+    <div className="title">CosySoft</div>
+    <div className="subtitle">assessment system</div>
+  </div>
+);
+
+export function Sider({ isCollapsed }) {
   return (
     <Layout.Sider
       trigger={null}
       collapsible
-      collapsed={props.isCollapsed}
+      collapsed={isCollapsed}
       width="230"
     >
-      <div className="logo">
-        {props.isCollapsed ? (
-          <div
-            className="shortlogo"
-            onClick={() => {
-              goToMainPage();
-            }}
-          >
-            CS
-          </div>
-        ) : (
-          <div
-            className="fulllogo"
-            onClick={() => {
-              goToMainPage();
-            }}
-          >
-            <div className="title">CosySoft</div>
-            <div className="subtitle">assessment system</div>
-          </div>
-        )}
-      </div>
-      )} />
+      <div className="logo">{isCollapsed ? shortLogo() : fullLogo()}</div>
       <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
         <Menu.Item key="1">
           <Icon type="user" />
           <span
             style={{ color: "white" }}
             onClick={() => {
-              goToMainPage();
+              goTo("/Users");
             }}
           >
             Таблица пользователей
